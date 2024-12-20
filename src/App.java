@@ -23,7 +23,7 @@ public class App {
 
             boolean matchs = true;
             for (char c : chars) {
-                if (!sub.contains(new Character(c).toString())) {
+                if (!sub.contains(Character.valueOf(c).toString())) {
                     matchs = false;
                     break;
                 }
