@@ -1,5 +1,7 @@
-public class App {
 
+
+public class App {
+    
     // Str1 = azobecozebanc
     // Str2 = abc
 
@@ -16,22 +18,9 @@ public class App {
         String output = "";
 
         for (int i = 0; i < one.length(); i++) {
-            String sub = one.substring(i, one.length());
+            String sub = one.substring(i); // Simplified substring
 
-            char chars[] = new char[two.length()];
-            two.getChars(0, two.length(), chars, 0);
-
-            boolean matchs = true;
-            for (char c : chars) {
-                if (!sub.contains(Character.valueOf(c).toString())) {
-                    matchs = false;
-                    break;
-                }
-
-            }
-
-            if (matchs) {
-
+            if (two.chars().allMatch(c -> sub.indexOf(c) >= 0)) { // Functional style matching
                 if (sub.length() < len) {
                     output = sub;
                     len = sub.length();
@@ -42,7 +31,9 @@ public class App {
         return output;
     }
 
+
     public static void main(String[] args) throws Exception {
-        System.out.println(findSubs("azobecozebanc", "abc"));
+        System.out.println(findSubs("azobecozebanc", "abc")); // Output: banc
+        
     }
 }
